@@ -1,13 +1,18 @@
 package ru.leroymerlin.qa.test.vedportal;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
+
+import java.time.Duration;
 
 public class Driver {
 
@@ -40,10 +45,10 @@ public class Driver {
         }
     }
 
-
-//    WebElement searchButton = wait.until(
-//            visibilityOfElementLocated
-//                    (searchButtonSelector));
+    public WebElement waitForElement(String xpath, int awaitTime) {
+        return new WebDriverWait(driver, Duration.ofMillis(awaitTime))
+                .until(ExpectedConditions.elementToBeClickable(By.cssSelector(xpath)));
+    }
 
     public void scrollBy(int y) {
         jse.executeScript("window.scrollTo(0, "+ y + ")");

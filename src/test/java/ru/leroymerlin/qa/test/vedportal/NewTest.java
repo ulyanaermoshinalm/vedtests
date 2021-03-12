@@ -47,18 +47,22 @@ public class NewTest extends Driver {
     @Test
     public void shouldTest4() throws InterruptedException {
         driver.get("https://leroymerlin.ru/product/stoleshnica-1200h700h28-mm-82125558/");
-        //driver.findElement(By.cssSelector("body")).sendKeys(Keys.CONTROL, Keys.END);
         WebElement button = (WebElement) jse.executeScript("return document.querySelector(\"body > div.page-wrapper > div.top-page-wrapper > div.content.pinned-footer > div.line-body > div.product-content > div > div > div > div > uc-pdp-card-ga-enriched > uc-elbrus-add-to-basket-button:nth-child(3)\").shadowRoot.querySelector(\"#label\");");
-        int y = button.getLocation().getY();
         scrollBy(button.getLocation().getY() - 100);
-        //js.executeScript("return document.querySelector(\"body > div.page-wrapper > div.top-page-wrapper > div.content.pinned-footer > div.line-body > div.product-content > div > div > div > div > uc-pdp-card-ga-enriched > uc-elbrus-add-to-basket-button:nth-child(3)\").shadowRoot.querySelector(\"#label\").click();");
         Thread.sleep(3000);
-        y = button.getLocation().getY();
         scrollBy(button.getLocation().getY() - 256);
         Thread.sleep(3000);
         button.click();
         Thread.sleep(3000);
     }
 
+    @Test
+    public void shouldTest5() throws InterruptedException {
+        driver.get("https://leroymerlin.ru/product/stoleshnica-1200h700h28-mm-82125558/");
+        driver.findElement(By.cssSelector("body")).sendKeys(Keys.CONTROL, Keys.END);
+        WebElement input = waitForElement(".subscription-footer-form #footer-subscribe-input", 3000);
+        input.sendKeys("стул");
+        Thread.sleep(3000);
+    }
 }
-//document.querySelector("body > div.page-wrapper > div.top-page-wrapper > div.content.pinned-footer > div.line-body > div.product-content > div > div > div > div > uc-pdp-card-ga-enriched > uc-elbrus-add-to-basket-button:nth-child(4)").shadowRoot.querySelector("#label")
+
