@@ -46,7 +46,7 @@ public class Driver {
 //                    (searchButtonSelector));
 
     public void scrollBy(int y) {
-        jse.executeScript("window.scrollBy(0, "+ y + ")");
+        jse.executeScript("window.scrollTo(0, "+ y + ")");
     }
 
     public boolean isVisible(WebElement el) {

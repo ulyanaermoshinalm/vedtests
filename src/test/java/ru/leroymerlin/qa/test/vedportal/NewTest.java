@@ -55,7 +55,7 @@ public class NewTest extends Driver {
         Thread.sleep(3000);
         y = button.getLocation().getY();
         scrollBy(button.getLocation().getY() - 256);
-        //Thread.sleep(3000);
+        Thread.sleep(3000);
         button.click();
         Thread.sleep(3000);
     }
