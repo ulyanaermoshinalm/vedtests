@@ -38,7 +38,7 @@ public class Driver {
 
     @AfterTest
     void closeUp() {
-        if ("ab".equals("ab"))
+        //if ("ab".equals("ab"))
         if (driver != null) {
             driver.quit();
             driver = null;
