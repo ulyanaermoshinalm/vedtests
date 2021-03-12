@@ -54,7 +54,7 @@ public class NewTest extends Driver {
         //js.executeScript("return document.querySelector(\"body > div.page-wrapper > div.top-page-wrapper > div.content.pinned-footer > div.line-body > div.product-content > div > div > div > div > uc-pdp-card-ga-enriched > uc-elbrus-add-to-basket-button:nth-child(3)\").shadowRoot.querySelector(\"#label\").click();");
         Thread.sleep(3000);
         y = button.getLocation().getY();
-        //scrollBy(button.getLocation().getY() - 256);
+        scrollBy(button.getLocation().getY() - 256);
         //Thread.sleep(3000);
         button.click();
         Thread.sleep(3000);
